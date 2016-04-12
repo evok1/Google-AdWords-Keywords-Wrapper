@@ -8,43 +8,55 @@ var keywordsListBroad = [];
 var keywordsListBroadModified = [];
 var keywordsListPhrase = [];
 var keywordsListExact = [];
-var keywordFinal = [];
-var stringFinal;
+var keywordsListFinal;
 
-console.log(unwrappedKeywords);
-console.log(keywords);
-console.log(wrappedKeywords);
+var choiceBroad;
+var choiceBroadModified;
+var choicePhrase;
+var choiceExact;
 
+var optionLowercase;
 
 // Wrapping keywords (Main function)
 $('#action-wrap').click(function () {
 
 	// Getting text area
 	keywords = $( '#unwrapped-keywords').val();
-	//console.log('keywords:', keywords);
 
 	// Splitting each keyword in array
 	keywordsListBroad = keywords.split("\n");
-	//console.log(keywordsListBroad);
 
+	// Getting keywords choice values
+	choiceBroad = $('#choice-broad').is(':checked');
+	choiceBroadModified = $('#choice-broadmodified').is(':checked');
+	choicePhrase = $('#choice-phrase').is(':checked');
+	choiceExact= $('#choice-exact').is(':checked');
+	
+	// Getting options choice values
+	optionLowercase = $('#option-lowercase').is(':checked');
+	
 	// Modifying keywords
-	stringFinal = "";
+	keywordsListFinal = "";
 	for (var i = 0 ; i < keywordsListBroad.length ; i++) {
-		//keywordsListPhrase[i] = "\""+keywordsListBroad[i]+"\"";
-		//keywordsListExact[i] = "\["+keywordsListBroad[i]+"\]";
-		//keywordsListBroadModified[i] = "+"+keywordsListBroad[i].replace(" "," +");
-		stringFinal += "\""+keywordsListBroad[i]+"\"" + "\n"
-		+"\["+keywordsListBroad[i]+"\]" + "\n"
-		+"+"+keywordsListBroad[i].replace(" "," +") + "\n";
+		if (choiceBroad === true) {
+			keywordsListFinal += keywordsListBroad[i] + "\n";
+		}
+		if (choiceBroadModified === true) {
+			keywordsListFinal += "+" + keywordsListBroad[i].replace(" "," +") + "\n";
+		}
+		if (choicePhrase === true) {
+			keywordsListFinal += "\"" + keywordsListBroad[i] + "\"" + "\n";
+		}
+		if (choiceExact === true) {
+			keywordsListFinal += "\[" + keywordsListBroad[i] + "\]" + "\n";
+		}
 	}
-	// console.log('keywordsListPhrase:',keywordsListPhrase);
-	// console.log('keywordsListExact:',keywordsListExact);
-	// console.log('keywordsListBroadModified:',keywordsListBroadModified);
 
-	//var keywordFinal = keywordsListBroad.concat(keywordsListBroadModified, keywordsListPhrase, keywordsListExact);
-	console.log('final:',stringFinal);
+	if (optionLowercase === true) {
+		keywordsListFinal = keywordsListFinal.toLowerCase();
+	}
 
-	$('#wrappedKeywords').val(stringFinal);
+	$('#wrappedKeywords').val(keywordsListFinal);
 
 })
 
@@ -56,7 +68,7 @@ $('#action-wrap').click(function () {
 var client = new ZeroClipboard( document.getElementById("copy-button") );
 
 client.on( 'ready', function(event) {
-	console.log( 'ZeroClipboard loaded' );
+	//console.log( 'ZeroClipboard loaded' );
 
 	client.on( 'copy', function(event) {
 		event.clipboardData.setData('text/plain', event.target.children.innerHTML);

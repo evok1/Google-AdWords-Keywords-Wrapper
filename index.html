@@ -23,17 +23,44 @@ Attention, you can get ban from Twitter if you get caught.
             		<link rel="stylesheet" href="node_modules/bootflat/bootflat/css/bootflat.css">
 		<link rel="stylesheet" type="text/css" href="css/app.css">
 	</head>
-	<body>
+	<body style="background-color: #f1f2f6;">
 
 	<container class="col-xs-12">
-		<h1>Google AdWords Keyword Wrapper</h1>
-		<div class="col-md-6">
-			<textarea id="unwrapped-keywords" rows="10" cols="50" placeholder="Write your keywords here" class="textarea"></textarea><br>
-			<button id="action-wrap">Wrap my keywords</button>
+		<h1 class="text-center">Google AdWords Keyword Wrapper</h1>
+		<div class="col-md-6 center-block content-block">
+			<textarea id="unwrapped-keywords" rows="8" placeholder="Enter the keyword(s) you need to wrap here" class="textarea center-block"></textarea><br>
+				<div class="checkbox text-center">
+					<label style="display: block">
+						<b>Choose the type of keywords you want :</b>
+					</label>
+					<label class="choice">
+						<input type="checkbox" id="choice-broad">Broad
+					</label>
+					<label class="choice">
+						<input type="checkbox" id="choice-broadmodified" checked>Broad Modified
+					</label>
+					<label class="choice">
+						<input type="checkbox" id="choice-phrase" checked>Phrase
+					</label>
+					<label class="choice">
+						<input type="checkbox" id="choice-exact" checked>Exact
+					</label>
+				  </div>
+			<button id="action-wrap" class="center-block btn btn-primary">Wrap my keywords</button>
+				<div class="checkbox text-center">
+					<label style="display: block">
+						<b>Option :</b>
+					</label>
+					<label class="choice">
+						<input type="checkbox" id="option-lowercase" checked>Lowercase keyrwords
+					</label>
+				  </div>
 		</div>
 		
-		<div class="col-md-6">
-			<textarea id="wrappedKeywords" rows="10" cols="50" class="textarea"></textarea>
+		<div class="col-md-6 center-block content-block">
+			<textarea id="wrappedKeywords" rows="8" placeholder="The magic happens here" class="textarea center-block"></textarea><br>
+			<div class="checkbox text-center">&nbsp;</div>
+			<button id="copy-button" title="Click to copy me." data-clipboard-target="wrappedKeywords" class="center-block btn btn-primary">Copy</button>
 		</div>
 
 	</container>

@@ -1,0 +1,18 @@
+h1 {
+	margin-bottom: 30px;
+}
+.content-block {
+	margin-top: 20px;
+}
+.textarea {
+	width: 90%;
+}
+.checkbox {
+	height: 40px;
+}
+.choice {
+	padding-right: 30px;
+}
+.btn {
+	margin-bottom: 20px;
+}
