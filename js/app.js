@@ -1,69 +1,97 @@
-// =================================
-// Variables declaration
-var unwrappedKeywords;
-var keywords;
-var wrappedKeywords;
+// =======================================================================
+// Creating varaibles and arrays
+var unwrappedKeywords, keywords, wrappedKeywords;
 
-var keywordsListBroad = [];
-var keywordsListBroadModified = [];
-var keywordsListPhrase = [];
-var keywordsListExact = [];
+var keywordsList = [];
+var keywordsListSplited = [];
 var keywordsListFinal;
 
-var choiceBroad;
-var choiceBroadModified;
-var choicePhrase;
-var choiceExact;
-
+var choiceBroad, choiceBroadModified, choicePhrase, choiceExact;
 var optionLowercase;
 
+// =======================================================================
+// UX
+
+$('#action-wrap').click(function () {
+	$('#wrap-block').hide();
+	$('#result-block').show();
+})
+
+$('#action-wrap-again').click(function () {
+	$('#wrap-block').show();
+	$('#result-block').hide();
+})
+
+// =======================================================================
 // Wrapping keywords (Main function)
+
 $('#action-wrap').click(function () {
 
 	// Getting text area
 	keywords = $( '#unwrapped-keywords').val();
-
-	// Splitting each keyword in array
-	keywordsListBroad = keywords.split("\n");
 
 	// Getting keywords choice values
 	choiceBroad = $('#choice-broad').is(':checked');
 	choiceBroadModified = $('#choice-broadmodified').is(':checked');
 	choicePhrase = $('#choice-phrase').is(':checked');
 	choiceExact= $('#choice-exact').is(':checked');
-	
+
 	// Getting options choice values
 	optionLowercase = $('#option-lowercase').is(':checked');
+
+	// Lowercase option
+	if (optionLowercase === true) {
+		keywords = keywords.toLowerCase(); 
+	}
+
+	// Splitting each keyword in array
+	keywordsList = keywords.split("\n");
+
+	// Remove blank keywords
+	keywordsList = keywordsList.filter(function(val){
+		if( val == '' || val == NaN || val == undefined || val == null ){
+	    		return false;
+		}
+		return true;
+	});
 	
 	// Modifying keywords
 	keywordsListFinal = "";
-	for (var i = 0 ; i < keywordsListBroad.length ; i++) {
-		if (choiceBroad === true) {
-			keywordsListFinal += keywordsListBroad[i] + "\n";
-		}
-		if (choiceBroadModified === true) {
-			keywordsListFinal += "+" + keywordsListBroad[i].replace(" "," +") + "\n";
-		}
-		if (choicePhrase === true) {
-			keywordsListFinal += "\"" + keywordsListBroad[i] + "\"" + "\n";
-		}
+	console.log(keywordsList);
+
+	for (var i = 0 ; i < keywordsList.length ; i++) {
 		if (choiceExact === true) {
-			keywordsListFinal += "\[" + keywordsListBroad[i] + "\]" + "\n";
+			keywordsListFinal += "\[" + keywordsList[i] + "\]" + "\n";
+		}
+
+		if (choicePhrase === true) {
+			keywordsListFinal += "\"" + keywordsList[i] + "\"" + "\n";
+		}
+		
+		if (choiceBroad === true) {
+			keywordsListFinal += keywordsList[i] + "\n";
 		}
 	}
-
-	if (optionLowercase === true) {
-		keywordsListFinal = keywordsListFinal.toLowerCase();
+		
+	if (choiceBroadModified === true) {
+			
+		// Adding +s
+		for(var y = 0 ; y < keywordsList.length ; y++) {
+ 			keywordsList[y] = "+" + keywordsList[y].replace(/ /g," +");
+			keywordsListFinal += keywordsList[y] + "\n";
+			console.log(keywordsList);
+		}
 	}
+	
 
-	$('#wrappedKeywords').val(keywordsListFinal);
+	// Creating final list
+	$('#wrappedKeywords').val(keywordsListFinal);	
 
 })
 
-
-// ======================================
+// ============================================================================
 // Zeroclipboard
-// Check it out : https://github.com/zeroclipboard
+// Check it out on github :  https://github.com/zeroclipboard
 
 var client = new ZeroClipboard( document.getElementById("copy-button") );
 

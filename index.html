@@ -27,11 +27,16 @@ Attention, you can get ban from Twitter if you get caught.
 
 	<container class="col-xs-12">
 		<h1 class="text-center">Google AdWords Keyword Wrapper</h1>
-		<div class="col-md-6 center-block content-block">
-			<textarea id="unwrapped-keywords" rows="8" placeholder="Enter the keyword(s) you need to wrap here" class="textarea center-block"></textarea><br>
+		<div class="col-xs-12 center-block content-block" id="wrap-block">
+			<textarea id="unwrapped-keywords" rows="8" placeholder="Enter the keyword(s) you need to wrap here" class="textarea center-block">Test Test Test
+test1 test1 test1
+test2 test2 test2
+
+test3 Test3 Test3</textarea><br>
+				<button id="action-wrap" class="center-block btn btn-primary">Wrap my keywords</button>
 				<div class="checkbox text-center">
 					<label style="display: block">
-						<b>Choose the type of keywords you want :</b>
+						<b>Choose the type of keywords you want :</b> (precheck recommanded)
 					</label>
 					<label class="choice">
 						<input type="checkbox" id="choice-broad">Broad
@@ -46,21 +51,23 @@ Attention, you can get ban from Twitter if you get caught.
 						<input type="checkbox" id="choice-exact" checked>Exact
 					</label>
 				  </div>
-			<button id="action-wrap" class="center-block btn btn-primary">Wrap my keywords</button>
+				  <br>
 				<div class="checkbox text-center">
 					<label style="display: block">
 						<b>Option :</b>
 					</label>
 					<label class="choice">
-						<input type="checkbox" id="option-lowercase" checked>Lowercase keyrwords
+						<input type="checkbox" id="option-lowercase" checked>Lowercase keywords (recommanded)
 					</label>
 				  </div>
 		</div>
 		
-		<div class="col-md-6 center-block content-block">
+		<div class="col-xs-12 center-block content-block" id="result-block">
 			<textarea id="wrappedKeywords" rows="8" placeholder="The magic happens here" class="textarea center-block"></textarea><br>
-			<div class="checkbox text-center">&nbsp;</div>
-			<button id="copy-button" title="Click to copy me." data-clipboard-target="wrappedKeywords" class="center-block btn btn-primary">Copy</button>
+			<div class="center-block" id="buttons">
+			<button id="action-wrap-again" class="center-block btn btn-warning">Wrap again</button>
+			<button id="copy-button" title="Click to copy me." data-clipboard-target="wrappedKeywords" class="center-block btn btn-success">Copy</button>
+			</div>
 		</div>
 
 	</container>
