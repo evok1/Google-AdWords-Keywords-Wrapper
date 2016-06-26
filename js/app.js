@@ -12,6 +12,7 @@ var optionLowercase;
 // =======================================================================
 // UX
 
+/*
 $('#action-wrap').click(function () {
 	$('#wrap-block').hide();
 	$('#result-block').show();
@@ -21,6 +22,7 @@ $('#action-wrap-again').click(function () {
 	$('#wrap-block').show();
 	$('#result-block').hide();
 })
+*/
 
 // =======================================================================
 // Wrapping keywords (Main function)

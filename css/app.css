@@ -1,33 +1,10 @@
-h1 {
-	margin-bottom: 30px;
-}
-.content-block {
-	margin-top: 20px;
+#header {
+	margin-bottom: 40px;
 }
 .textarea {
-	width: 50%;
+	width: 80%;
+} 
+#information-compl {
+	padding-top: 80px;
 }
-.checkbox {
-	height: 40px;
-}
-.choice {
-	padding-right: 30px;
-}
-.btn {
-	margin-bottom: 20px;
-}
-#wrap-block {
-
-}
-#result-block {
-	display: none;
-}
-#result-block button {
-	display: inline-block;
-	margin : 0px 40px 0px 40px;
-	text-align: center;
-}
-#buttons {
-	width: 500px;
-	margin: 0 auto;
 }

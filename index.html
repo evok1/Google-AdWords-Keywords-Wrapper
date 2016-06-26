@@ -14,65 +14,109 @@ Attention, you can get ban from Twitter if you get caught.
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Google AdWords Keyword Wrapper</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<link rel="stylesheet" href="node_modules/bootflat/css/bootstrap.min.css">
-            		<link rel="stylesheet" href="node_modules/bootflat/bootflat/css/bootflat.css">
-		<link rel="stylesheet" type="text/css" href="css/app.css">
-	</head>
-	<body style="background-color: #f1f2f6;">
+<head>
+	<meta charset="utf-8">
+	<title>Créateur de mots clés Google AdWords - Agence Doko</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- App css -->
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+
+</head>
+
+<body style="background-color: #f1f2f6;">
+
+	<!-- Container ======================================================== -->
 
 	<container class="col-xs-12">
-		<h1 class="text-center">Google AdWords Keyword Wrapper</h1>
-		<div class="col-xs-12 center-block content-block" id="wrap-block">
-			<textarea id="unwrapped-keywords" rows="8" placeholder="Enter the keyword(s) you need to wrap here" class="textarea center-block">Test Test Test
-test1 test1 test1
-test2 test2 test2
 
-test3 Test3 Test3</textarea><br>
-				<button id="action-wrap" class="center-block btn btn-primary">Wrap my keywords</button>
-				<div class="checkbox text-center">
-					<label style="display: block">
-						<b>Choose the type of keywords you want :</b> (precheck recommanded)
-					</label>
-					<label class="choice">
-						<input type="checkbox" id="choice-broad">Broad
-					</label>
-					<label class="choice">
-						<input type="checkbox" id="choice-broadmodified" checked>Broad Modified
-					</label>
-					<label class="choice">
-						<input type="checkbox" id="choice-phrase" checked>Phrase
-					</label>
-					<label class="choice">
-						<input type="checkbox" id="choice-exact" checked>Exact
-					</label>
-				  </div>
-				  <br>
-				<div class="checkbox text-center">
-					<label style="display: block">
-						<b>Option :</b>
-					</label>
-					<label class="choice">
-						<input type="checkbox" id="option-lowercase" checked>Lowercase keywords (recommanded)
-					</label>
-				  </div>
-		</div>
-		
-		<div class="col-xs-12 center-block content-block" id="result-block">
-			<textarea id="wrappedKeywords" rows="8" placeholder="The magic happens here" class="textarea center-block"></textarea><br>
-			<div class="center-block" id="buttons">
-			<button id="action-wrap-again" class="center-block btn btn-warning">Wrap again</button>
-			<button id="copy-button" title="Click to copy me." data-clipboard-target="wrappedKeywords" class="center-block btn btn-success">Copy</button>
+	<div class="col-xs-12 text-center" id="header">
+		<h1 class="text-center">Créateur de mots clés Google AdWords</h1>
+		Générer les correspondances de mots clés pour Google AdWords en un clic !
+	</div>
+
+	<!-- Column - Left  ======================================================== -->
+
+	<div class="col-xs-12 col-sm-6 center-block" id="wrap-block">
+		<textarea id="unwrapped-keywords" rows="8" placeholder="Ajoutez vos mots clés à créer ici" class="textarea center-block"></textarea><br>
+			<button id="action-wrap" class="center-block btn btn-primary">Créer les correspondances</button>
+			
+			<!-- User Choices -->
+			<div class="checkbox text-center">
+				<label style="display: block">
+					<b>Choisissez les correspondances que vous souhaitez créer :</b>
+				</label>
+				<label class="choice">
+					<input type="checkbox" id="choice-broad">Requête large
+				</label>
+				<label class="choice">
+					<input type="checkbox" id="choice-broadmodified" checked>Modificateur de requête large
+				</label>
+				<label class="choice">
+					<input type="checkbox" id="choice-phrase" checked>Expression exacte
+				</label>
+				<label class="choice">
+					<input type="checkbox" id="choice-exact" checked>Mot clé exact
+				</label>
+
+				<br>
+				<small>(Les correspondances sléectionnées sont recommandées)</small>
 			</div>
+			<div class="checkbox text-center">
+			<br>
+				<label style="display: block">
+					<b>Option :</b>
+				</label>
+				<label class="choice">
+					<input type="checkbox" id="option-lowercase" checked>Lowercase keywords (recommanded)
+				</label>
+			  </div>
+
+			  <!-- User Choices - End-->
+	</div>
+
+	<!-- Column - Left - End ======================================================== -->
+
+
+	<!-- Column - Right  ======================================================== -->
+
+	<div class="col-xs-12 col-sm-6 center-block" id="result-block">
+		<textarea id="wrappedKeywords" rows="8" placeholder="Les correspondances seront créées ici" class="textarea center-block"></textarea><br>
+		<div class="center-block text-center" id="buttons">
+		<button id="copy-button" title="Click to copy me." data-clipboard-target="wrappedKeywords" class="center-block btn btn-success">Copier</button>
+		<small>La fonction copie fontionne que pour les navigateurs les plus récents</small>
 		</div>
+	</div>
+
+	<div class="col-xs-12" id="information-compl">
+	<h4>Conditions générales d'utilisation</h4>
+	Cet outil est mis gratuitement à la disposition des internautes pour les aider à gérer plus facilement leurs campagnes Google AdWords.
+	L'ajout des mots clés dans une campagne pour engendrer une hausse des dépenses publicitaires en ligne.
+	L'utilisation de cet outil ne saurait remplacer l'intervention d'un professionnel de la publicité en ligne ou d'une <a href="https://www.google.com/partners/#a_search" target="_blank">agence Google Partners</a> sur votre compte.
+	Nous déclinons toutes responsabilités en cas de mauvais paramétrage de votre compte et vos campagnes Google AdWords suite à l'utilisation de cet outil (générateur de mots clés).
+	<br><br>
+	Plus d'informations sur les correspondances Google AdWords : <a href="https://support.google.com/adwords/answer/2497836?hl=fr" target="_blank">À propos des options de correspondance des mots clés</a>
+	</div>
+
+	<!-- Column - Right - End  ======================================================== -->
 
 	</container>
-		<script src="node_modules/zeroclipboard/dist/ZeroClipboard.js"></script>
-		<script src="js/app.js"></script>
 
-	</body>
+	<!-- Container - End ======================================================== -->
+
+	<!-- JS -->
+	<script src="node_modules/zeroclipboard/dist/ZeroClipboard.js"></script>
+	<script src="js/app.js"></script>
+
+</body>
 </html>
