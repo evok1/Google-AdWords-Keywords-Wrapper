@@ -1,10 +1,41 @@
-#header {
-	margin-bottom: 40px;
+/* Elements ------------------------------------------- */
+body {
+	background-color: #f3f3f3;
+	font-family: Lato;
 }
+
+/* Hx ------------------------------------------- */
+h1, h2 {
+	font-family: 'Varela Round', 'Lato', 'Sans serif';
+}
+h2 {
+	font-size: 20px;
+}
+
+/* Id ------------------------------------------- */
+
+#header {
+	margin-bottom: 30px;
+}
+#information-compl {
+	padding-top: 50px;
+}
+#copy-button {
+	margin-bottom: 10px;
+}
+#mentions-legales {
+	font-size: 11px;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+/* Classes ------------------------------------------- */
+
 .textarea {
 	width: 80%;
 } 
-#information-compl {
-	padding-top: 80px;
-}
+.content {
+	margin-bottom: 30px;
+	font-size: 13px;
 }
